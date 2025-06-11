@@ -24,6 +24,8 @@ import {
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import { BiLogoTypescript } from "react-icons/bi";
+import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs,  } from "react-icons/si";
 
 // Ultra-lightweight animation variants - GPU optimized
 const fadeIn = {
@@ -394,10 +396,15 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold text-white mb-8">Frontend</h3>
                 <StaggerContainer className="flex flex-wrap justify-center gap-8" staggerDelay={0.06}>
                   {[
-                    { name: "TypeScript", icon: Code },
-                    { name: "JavaScript", icon: Code },
-                    { name: "React", icon: Code },
-                    { name: "Next.js", icon: Globe },
+                    { name: "TypeScript", icon: SiTypescript  },
+                    { name: "JavaScript", icon: SiJavascript },
+                    { name: "Material UI", icon: SiMaterialdesign },
+                    { name: "Daisy UI", icon: SiDaisyui },
+                    { name: "Shadcn UI", icon: SiShadcnui  },
+                    { name: "Tailwind CSS", icon: SiTailwindcss },
+                    { name: "React Query", icon: SiReactquery },
+                    { name: "Next.js", icon: SiNextdotjs },
+                    { name: "React", icon: SiReact },
                   ].map((tech) => {
                     const IconComponent = tech.icon
                     return (
@@ -427,10 +434,12 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold text-white mb-8">Backend</h3>
                 <StaggerContainer className="flex flex-wrap justify-center gap-8" staggerDelay={0.06}>
                   {[
+                    { name: "Nextjs", icon: SiNextdotjs },
+                    { name: "Node.js", icon: SiNodedotjs },
                     { name: "PostgreSQL", icon: Database },
                     { name: "MySQL", icon: Database },
                     { name: "MongoDB", icon: Database },
-                    { name: "Node.js", icon: Server },
+                    
                   ].map((tech) => {
                     const IconComponent = tech.icon
                     return (
