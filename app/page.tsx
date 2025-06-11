@@ -332,7 +332,7 @@ export default function Portfolio() {
             className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent"
             style={{ willChange: "transform, opacity" }}
           >
-            Alex Johnson
+            Om Borisagar
           </motion.h1>
           <motion.h2
             initial={{ opacity: 0, transform: "translate3d(0, 20px, 0)" }}
