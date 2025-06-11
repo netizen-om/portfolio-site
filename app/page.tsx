@@ -25,7 +25,9 @@ import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { BiLogoTypescript } from "react-icons/bi";
-import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs,  } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub,  } from "react-icons/si";
+import { FaExchangeAlt } from "react-icons/fa";
+
 
 // Ultra-lightweight animation variants - GPU optimized
 const fadeIn = {
@@ -436,9 +438,20 @@ export default function Portfolio() {
                   {[
                     { name: "Nextjs", icon: SiNextdotjs },
                     { name: "Node.js", icon: SiNodedotjs },
-                    { name: "PostgreSQL", icon: Database },
-                    { name: "MySQL", icon: Database },
-                    { name: "MongoDB", icon: Database },
+                    { name: "MongoDB", icon: SiMongodb },
+                    { name: "Mongoose", icon: SiMongoose },
+                    { name: "Express", icon: SiExpress },
+                    { name: "Postgresql", icon: SiPostgresql },
+                    { name: "NeonDB", icon: () => <img src="neondb.svg" 
+                      className="w-12 h-12 object-contain mx-auto mb-3 brightness-50 contrast--150" alt="Neon"/> },
+                    { name: "MySQL", icon: SiMysql },
+                    { name: "Prisma", icon: SiPrisma },
+                    { name: "Drizzle", icon: SiDrizzle },
+                    { name: "Redis", icon: SiRedis },
+                    { name: "Docker", icon: SiDocker },
+                    { name: "Socket.io", icon: SiSocketdotio },
+                    { name: "WebRTC", icon: SiWebrtc },
+                    { name: "Serverless", icon: SiServerless },
                     
                   ].map((tech) => {
                     const IconComponent = tech.icon
@@ -469,8 +482,8 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold text-white mb-8">Other</h3>
                 <StaggerContainer className="flex flex-wrap justify-center gap-8" staggerDelay={0.06}>
                   {[
-                    { name: "GitHub", icon: Github },
-                    { name: "Git", icon: Code },
+                    { name: "GitHub", icon: SiGithub },
+                    { name: "Git", icon: SiGit },
                   ].map((tech) => {
                     const IconComponent = tech.icon
                     return (
