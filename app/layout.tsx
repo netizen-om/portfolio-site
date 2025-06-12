@@ -9,10 +9,9 @@ import "./globals.css"
 // })
 
 export const metadata: Metadata = {
-  title: "Alex Johnson - Full Stack Developer",
+  title: "Om Borisagar - Full Stack Developer",
   description:
-    "Premium portfolio showcasing full-stack development expertise with modern technologies and elegant design.",
-    generator: 'v0.dev'
+    "Portfolio Site",
 }
 
 export default function RootLayout({

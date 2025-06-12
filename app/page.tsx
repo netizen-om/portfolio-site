@@ -25,7 +25,7 @@ import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { BiLogoTypescript } from "react-icons/bi";
-import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub,  } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium,  } from "react-icons/si";
 import { FaExchangeAlt } from "react-icons/fa";
 
 
@@ -966,7 +966,7 @@ export default function Portfolio() {
               viewport={{ once: true, margin: "-50px" }}
               className="pt-8 border-t border-white/10 text-center"
             >
-              <p className="text-gray-400">© Alex Johnson 2025 – All rights reserved.</p>
+              <p className="text-gray-400">© Om Borisagar 2025 – All rights reserved.</p>
             </motion.div>
           </div>
         </footer>
