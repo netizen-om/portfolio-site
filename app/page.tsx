@@ -3,6 +3,7 @@
 import React from "react"
 
 import { useState, useEffect, useCallback } from "react"
+import ZustandIcon from "@/components/icons/ZustandIcon";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -25,7 +26,8 @@ import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { BiLogoTypescript } from "react-icons/bi";
-import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium,  } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium,   } from "react-icons/si";
+import { GiBearFace } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
 
 
@@ -403,6 +405,7 @@ export default function Portfolio() {
                     { name: "Material UI", icon: SiMaterialdesign },
                     { name: "Daisy UI", icon: SiDaisyui },
                     { name: "Shadcn UI", icon: SiShadcnui  },
+                    // { name: "Zustand", icon: GiBearFace },
                     { name: "Tailwind CSS", icon: SiTailwindcss },
                     { name: "React Query", icon: SiReactquery },
                     { name: "Next.js", icon: SiNextdotjs },
@@ -441,7 +444,7 @@ export default function Portfolio() {
                     { name: "MongoDB", icon: SiMongodb },
                     { name: "Mongoose", icon: SiMongoose },
                     { name: "Express", icon: SiExpress },
-                    { name: "Postgresql", icon: SiPostgresql },
+                    { name: "PostgreSQL", icon: SiPostgresql },
                     { name: "NeonDB", icon: () => <img src="neondb.svg" 
                       className="w-12 h-12 object-contain mx-auto mb-3 brightness-50 contrast--150" alt="Neon"/> },
                     { name: "MySQL", icon: SiMysql },
