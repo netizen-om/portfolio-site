@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback } from "react";
 import ZustandIcon from "@/components/icons/ZustandIcon";
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Github,
   Linkedin,
@@ -21,41 +21,76 @@ import {
   X,
   ArrowUp,
   FileText,
-} from "lucide-react"
-import Link from "next/link"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+} from "lucide-react";
+import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { BiLogoTypescript, BiSolidVector } from "react-icons/bi";
-import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium, SiLangchain, SiPostman, SiPosthog,   } from "react-icons/si";
+import {
+  SiTypescript,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiHtml5,
+  SiCss3,
+  SiShadcnui,
+  SiTailwindcss,
+  SiReactquery,
+  SiMaterialdesign,
+  SiDaisyui,
+  SiNodedotjs,
+  SiMongodb,
+  SiMongoose,
+  SiExpress,
+  SiPostgresql,
+  SiMysql,
+  SiPrisma,
+  SiDrizzle,
+  SiRedis,
+  SiDocker,
+  SiSocketdotio,
+  SiWebrtc,
+  SiServerless,
+  SiClerk,
+  SiGit,
+  SiGithub,
+  SiVscodium,
+  SiLangchain,
+  SiPostman,
+  SiPosthog,
+} from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { GiBearFace } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
-
+import { redirect } from "next/navigation";
 
 // Ultra-lightweight animation variants - GPU optimized
 const fadeIn = {
   initial: { opacity: 0, transform: "translate3d(0, 15px, 0)" },
   animate: { opacity: 1, transform: "translate3d(0, 0, 0)" },
   transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
-}
+};
 
 const scaleIn = {
-  initial: { opacity: 0, transform: "translate3d(0, 0, 0) scale3d(0.95, 0.95, 1)" },
+  initial: {
+    opacity: 0,
+    transform: "translate3d(0, 0, 0) scale3d(0.95, 0.95, 1)",
+  },
   animate: { opacity: 1, transform: "translate3d(0, 0, 0) scale3d(1, 1, 1)" },
   transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
-}
+};
 
 const slideLeft = {
   initial: { opacity: 0, transform: "translate3d(-20px, 0, 0)" },
   animate: { opacity: 1, transform: "translate3d(0, 0, 0)" },
   transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
-}
+};
 
 const slideRight = {
   initial: { opacity: 0, transform: "translate3d(20px, 0, 0)" },
   animate: { opacity: 1, transform: "translate3d(0, 0, 0)" },
   transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] },
-}
+};
 
 // Optimized viewport animation component
 function ViewportAnimation({
@@ -64,17 +99,17 @@ function ViewportAnimation({
   variant = fadeIn,
   delay = 0,
 }: {
-  children: React.ReactNode
-  className?: string
-  variant?: any
-  delay?: number
+  children: React.ReactNode;
+  className?: string;
+  variant?: any;
+  delay?: number;
 }) {
-  const ref = useRef(null)
+  const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-80px",
     amount: 0.2,
-  })
+  });
 
   return (
     <motion.div
@@ -87,7 +122,7 @@ function ViewportAnimation({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 // Staggered animation container
@@ -96,16 +131,16 @@ function StaggerContainer({
   className = "",
   staggerDelay = 0.08,
 }: {
-  children: React.ReactNode
-  className?: string
-  staggerDelay?: number
+  children: React.ReactNode;
+  className?: string;
+  staggerDelay?: number;
 }) {
-  const ref = useRef(null)
+  const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-60px",
     amount: 0.1,
-  })
+  });
 
   return (
     <div ref={ref} className={className}>
@@ -128,60 +163,60 @@ function StaggerContainer({
         </motion.div>
       ))}
     </div>
-  )
+  );
 }
 
 export default function Portfolio() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showScrollTop, setShowScrollTop] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Optimized scroll handler with RAF throttling
   const handleScroll = useCallback(() => {
-    const scrollY = window.scrollY
-    setShowScrollTop(scrollY > 400)
-    setIsScrolled(scrollY > 50)
-  }, [])
+    const scrollY = window.scrollY;
+    setShowScrollTop(scrollY > 400);
+    setIsScrolled(scrollY > 50);
+  }, []);
 
   useEffect(() => {
-    let rafId: number
-    let ticking = false
+    let rafId: number;
+    let ticking = false;
 
     const onScroll = () => {
       if (!ticking) {
         rafId = requestAnimationFrame(() => {
-          handleScroll()
-          ticking = false
-        })
-        ticking = true
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
       }
-    }
+    };
 
-    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", onScroll)
-      if (rafId) cancelAnimationFrame(rafId)
-    }
-  }, [handleScroll])
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [handleScroll]);
 
   const scrollToSection = useCallback((sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    setIsMenuOpen(false)
-  }, [])
+    setIsMenuOpen(false);
+  }, []);
 
   const scrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }, [])
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "hero" },
     { name: "About", href: "tools" },
     { name: "Work", href: "projects" },
     { name: "Contact", href: "contact" },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -241,7 +276,7 @@ export default function Portfolio() {
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
                 { icon: Twitter, href: "#", label: "Twitter" },
               ].map((social, index) => {
-                const IconComponent = social.icon
+                const IconComponent = social.icon;
                 return (
                   <motion.div
                     key={social.label}
@@ -257,7 +292,7 @@ export default function Portfolio() {
                       <IconComponent className="w-4 h-4" />
                     </Link>
                   </motion.div>
-                )
+                );
               })}
 
               <div className="w-px h-6 bg-gray-600 mx-2" />
@@ -286,7 +321,11 @@ export default function Portfolio() {
               className="md:hidden w-9 h-9 flex items-center justify-center text-gray-300 hover:text-white transition-colors duration-200"
               whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </motion.button>
           </div>
 
@@ -330,12 +369,19 @@ export default function Portfolio() {
       </div>
 
       {/* Hero Section */}
-      <section id="hero" className="relative z-10 min-h-screen flex items-center justify-center px-4 pt-20">
+      <section
+        id="hero"
+        className="relative z-10 min-h-screen flex items-center justify-center px-4 pt-20"
+      >
         <div className="text-center max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, transform: "translate3d(0, 30px, 0)" }}
             animate={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 0.5,
+              delay: 0.1,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent"
             style={{ willChange: "transform, opacity" }}
           >
@@ -344,7 +390,11 @@ export default function Portfolio() {
           <motion.h2
             initial={{ opacity: 0, transform: "translate3d(0, 20px, 0)" }}
             animate={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
-            transition={{ duration: 0.4, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 0.4,
+              delay: 0.2,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="text-2xl md:text-3xl text-gray-300 mb-6 font-light"
           >
             Full Stack Developer
@@ -352,16 +402,25 @@ export default function Portfolio() {
           <motion.p
             initial={{ opacity: 0, transform: "translate3d(0, 20px, 0)" }}
             animate={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
-            transition={{ duration: 0.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 0.4,
+              delay: 0.3,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Crafting exceptional digital experiences with modern technologies. Passionate about clean code, innovative
-            solutions, and user-centric design.
+            Crafting exceptional digital experiences with modern technologies.
+            Passionate about clean code, innovative solutions, and user-centric
+            design.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, transform: "translate3d(0, 20px, 0)" }}
             animate={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
-            transition={{ duration: 0.4, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 0.4,
+              delay: 0.4,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
           >
             <Button
               onClick={() => scrollToSection("contact")}
@@ -374,7 +433,11 @@ export default function Portfolio() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 0.4,
+              delay: 0.5,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
             className="mt-16 cursor-pointer"
             onClick={() => scrollToSection("tools")}
             whileHover={{ transform: "translate3d(0, -2px, 0)" }}
@@ -399,26 +462,34 @@ export default function Portfolio() {
             <ViewportAnimation delay={0.1}>
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-white mb-8">Frontend</h3>
-                <StaggerContainer className="flex flex-wrap justify-center gap-8" staggerDelay={0.06}>
+                <StaggerContainer
+                  className="flex flex-wrap justify-center gap-8"
+                  staggerDelay={0.06}
+                >
                   {[
-                    { name: "TypeScript", icon: SiTypescript  },
+                    { name: "TypeScript", icon: SiTypescript },
                     { name: "JavaScript", icon: SiJavascript },
                     { name: "Material UI", icon: SiMaterialdesign },
                     { name: "Daisy UI", icon: SiDaisyui },
-                    { name: "Shadcn UI", icon: SiShadcnui  },
+                    { name: "Shadcn UI", icon: SiShadcnui },
                     // { name: "Zustand", icon: GiBearFace },
                     { name: "Tailwind CSS", icon: SiTailwindcss },
                     { name: "React Query", icon: SiReactquery },
                     { name: "Next.js", icon: SiNextdotjs },
                     { name: "React", icon: SiReact },
                   ].map((tech) => {
-                    const IconComponent = tech.icon
+                    const IconComponent = tech.icon;
                     return (
                       <motion.div
                         key={tech.name}
                         whileHover={{
-                          transform: "translate3d(0, -5px, 0) scale3d(1.02, 1.02, 1)",
-                          transition: { type: "spring", stiffness: 400, damping: 30 },
+                          transform:
+                            "translate3d(0, -5px, 0) scale3d(1.02, 1.02, 1)",
+                          transition: {
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 30,
+                          },
                         }}
                         className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-200 hover:bg-white/10"
                         style={{ willChange: "transform" }}
@@ -428,7 +499,7 @@ export default function Portfolio() {
                           {tech.name}
                         </p>
                       </motion.div>
-                    )
+                    );
                   })}
                 </StaggerContainer>
               </div>
@@ -438,7 +509,10 @@ export default function Portfolio() {
             <ViewportAnimation delay={0.2}>
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-white mb-8">Backend</h3>
-                <StaggerContainer className="flex flex-wrap justify-center gap-8" staggerDelay={0.06}>
+                <StaggerContainer
+                  className="flex flex-wrap justify-center gap-8"
+                  staggerDelay={0.06}
+                >
                   {[
                     { name: "Nextjs", icon: SiNextdotjs },
                     { name: "Node.js", icon: SiNodedotjs },
@@ -446,8 +520,16 @@ export default function Portfolio() {
                     { name: "Mongoose", icon: SiMongoose },
                     { name: "Express", icon: SiExpress },
                     { name: "PostgreSQL", icon: SiPostgresql },
-                    { name: "NeonDB", icon: () => <img src="neondb.svg" 
-                      className="w-12 h-12 object-contain mx-auto mb-3 brightness-50 contrast--150" alt="Neon"/> },
+                    {
+                      name: "NeonDB",
+                      icon: () => (
+                        <img
+                          src="neondb.svg"
+                          className="w-12 h-12 object-contain mx-auto mb-3 brightness-50 contrast--150"
+                          alt="Neon"
+                        />
+                      ),
+                    },
                     { name: "MySQL", icon: SiMysql },
                     { name: "Prisma", icon: SiPrisma },
                     { name: "Drizzle", icon: SiDrizzle },
@@ -457,15 +539,19 @@ export default function Portfolio() {
                     { name: "WebRTC", icon: SiWebrtc },
                     { name: "Serverless", icon: SiServerless },
                     { name: "Langchain", icon: SiLangchain },
-                    
                   ].map((tech) => {
-                    const IconComponent = tech.icon
+                    const IconComponent = tech.icon;
                     return (
                       <motion.div
                         key={tech.name}
                         whileHover={{
-                          transform: "translate3d(0, -5px, 0) scale3d(1.02, 1.02, 1)",
-                          transition: { type: "spring", stiffness: 400, damping: 30 },
+                          transform:
+                            "translate3d(0, -5px, 0) scale3d(1.02, 1.02, 1)",
+                          transition: {
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 30,
+                          },
                         }}
                         className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-200 hover:bg-white/10"
                         style={{ willChange: "transform" }}
@@ -475,7 +561,7 @@ export default function Portfolio() {
                           {tech.name}
                         </p>
                       </motion.div>
-                    )
+                    );
                   })}
                 </StaggerContainer>
               </div>
@@ -485,7 +571,10 @@ export default function Portfolio() {
             <ViewportAnimation delay={0.3}>
               <div className="text-center">
                 <h3 className="text-2xl font-bold text-white mb-8">Other</h3>
-                <StaggerContainer className="flex flex-wrap justify-center gap-8" staggerDelay={0.06}>
+                <StaggerContainer
+                  className="flex flex-wrap justify-center gap-8"
+                  staggerDelay={0.06}
+                >
                   {[
                     { name: "GitHub", icon: SiGithub },
                     { name: "Git", icon: SiGit },
@@ -493,13 +582,18 @@ export default function Portfolio() {
                     { name: "Pastman", icon: SiPostman },
                     { name: "PostHog", icon: SiPosthog },
                   ].map((tech) => {
-                    const IconComponent = tech.icon
+                    const IconComponent = tech.icon;
                     return (
                       <motion.div
                         key={tech.name}
                         whileHover={{
-                          transform: "translate3d(0, -5px, 0) scale3d(1.02, 1.02, 1)",
-                          transition: { type: "spring", stiffness: 400, damping: 30 },
+                          transform:
+                            "translate3d(0, -5px, 0) scale3d(1.02, 1.02, 1)",
+                          transition: {
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 30,
+                          },
                         }}
                         className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-200 hover:bg-white/10"
                         style={{ willChange: "transform" }}
@@ -509,7 +603,7 @@ export default function Portfolio() {
                           {tech.name}
                         </p>
                       </motion.div>
-                    )
+                    );
                   })}
                 </StaggerContainer>
               </div>
@@ -522,7 +616,9 @@ export default function Portfolio() {
       <section id="projects" className="relative z-10 py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <ViewportAnimation>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">Check out some of my work!</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+              Check out some of my work!
+            </h2>
           </ViewportAnimation>
 
           <div className="space-y-8">
@@ -538,31 +634,37 @@ export default function Portfolio() {
                   <div className="flex-1 space-y-6">
                     <div className="relative">
                       <div className="flex gap-3 lg:absolute lg:-top-2 lg:-right-2 mb-4 lg:mb-0">
-                        <motion.button
-                          whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
-                          whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
-                          className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
-                          style={{ willChange: "transform" }}
-                        >
-                          <Github className="w-5 h-5 text-white" />
-                        </motion.button>
-                        <motion.button
+                        <Link href="https://github.com/netizen-om/Pravya-AI" target="_blank" rel="noopener noreferrer">
+                          <motion.button
+                            whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
+                            whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
+                            className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
+                            style={{ willChange: "transform" }}
+                          >
+                            <Github className="w-5 h-5 text-white" />
+                          </motion.button>
+                        </Link>
+                        {/* <motion.button
                           whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
                           whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
                           className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
                           style={{ willChange: "transform" }}
                         >
                           <ExternalLink className="w-5 h-5 text-white" />
-                        </motion.button>
+                        </motion.button> */}
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-4">Eldora UI</h3>
+                      <h3 className="text-3xl font-bold text-white mb-4">
+                        Pravya AI
+                      </h3>
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      A comprehensive design system and component library built for modern web applications. Features
-                      customizable components, dark mode support, and accessibility-first design principles.
+                      The AI Interview Practice Platform is a full-stack
+                      web-based application designed to help students and job
+                      seekers prepare for real-world interviews in both
+                      technical and behavioral domains.
                     </p>
                     <div className="flex flex-wrap gap-3">
-                      {["TypeScript", "React", "Tailwind"].map((tech) => (
+                      {["Nextjs", "Typescript", "neonDB", "NextAuth", "Docker", "Langchain", "PostgreSQL", "QdrantDB"].map((tech) => (
                         <motion.div
                           key={tech}
                           whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
@@ -570,7 +672,9 @@ export default function Portfolio() {
                           style={{ willChange: "transform" }}
                         >
                           <Code className="w-4 h-4 text-gray-300" />
-                          <span className="text-gray-300 text-sm font-medium">{tech}</span>
+                          <span className="text-gray-300 text-sm font-medium">
+                            {tech}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
@@ -579,7 +683,11 @@ export default function Portfolio() {
                     <motion.div
                       className="relative"
                       whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
                       style={{ willChange: "transform" }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl transition-all duration-300" />
@@ -623,11 +731,15 @@ export default function Portfolio() {
                           <ExternalLink className="w-5 h-5 text-white" />
                         </motion.button>
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-4">VR Mall</h3>
+                      <h3 className="text-3xl font-bold text-white mb-4">
+                        VR Mall
+                      </h3>
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      An immersive virtual reality shopping experience that brings the mall to your home. Features 3D
-                      product visualization, virtual try-ons, and seamless payment integration.
+                      An immersive virtual reality shopping experience that
+                      brings the mall to your home. Features 3D product
+                      visualization, virtual try-ons, and seamless payment
+                      integration.
                     </p>
                     <div className="flex flex-wrap gap-3">
                       {["React", "Next.js", "PostgreSQL"].map((tech) => (
@@ -638,7 +750,9 @@ export default function Portfolio() {
                           style={{ willChange: "transform" }}
                         >
                           <Code className="w-4 h-4 text-gray-300" />
-                          <span className="text-gray-300 text-sm font-medium">{tech}</span>
+                          <span className="text-gray-300 text-sm font-medium">
+                            {tech}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
@@ -647,7 +761,11 @@ export default function Portfolio() {
                     <motion.div
                       className="relative"
                       whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
                       style={{ willChange: "transform" }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-2xl blur-xl transition-all duration-300" />
@@ -691,11 +809,15 @@ export default function Portfolio() {
                           <ExternalLink className="w-5 h-5 text-white" />
                         </motion.button>
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-4">AI Content Studio</h3>
+                      <h3 className="text-3xl font-bold text-white mb-4">
+                        AI Content Studio
+                      </h3>
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      Advanced AI-powered content creation platform with multiple templates, SEO optimization, and team
-                      collaboration features. Streamlines content workflow for marketing teams.
+                      Advanced AI-powered content creation platform with
+                      multiple templates, SEO optimization, and team
+                      collaboration features. Streamlines content workflow for
+                      marketing teams.
                     </p>
                     <div className="flex flex-wrap gap-3">
                       {["TypeScript", "Node.js", "MongoDB"].map((tech) => (
@@ -706,7 +828,9 @@ export default function Portfolio() {
                           style={{ willChange: "transform" }}
                         >
                           <Code className="w-4 h-4 text-gray-300" />
-                          <span className="text-gray-300 text-sm font-medium">{tech}</span>
+                          <span className="text-gray-300 text-sm font-medium">
+                            {tech}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
@@ -715,7 +839,11 @@ export default function Portfolio() {
                     <motion.div
                       className="relative"
                       whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
                       style={{ willChange: "transform" }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl blur-xl transition-all duration-300" />
@@ -740,7 +868,9 @@ export default function Portfolio() {
           <ViewportAnimation>
             <div className="text-center mb-20">
               <div className="inline-block mb-6">
-                <span className="text-sm font-medium text-gray-400 tracking-[0.2em] uppercase">Contact</span>
+                <span className="text-sm font-medium text-gray-400 tracking-[0.2em] uppercase">
+                  Contact
+                </span>
               </div>
               <h2 className="text-5xl md:text-7xl font-light mb-8 text-white tracking-tight leading-tight">
                 Let's Create
@@ -750,20 +880,26 @@ export default function Portfolio() {
                 </span>
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                Ready to bring your vision to life? I'd love to hear about your project and discuss how we can work
-                together.
+                Ready to bring your vision to life? I'd love to hear about your
+                project and discuss how we can work together.
               </p>
             </div>
           </ViewportAnimation>
 
           <div className="grid lg:grid-cols-5 gap-12 items-start">
             {/* Contact Form */}
-            <ViewportAnimation variant={slideLeft} delay={0.1} className="lg:col-span-3">
+            <ViewportAnimation
+              variant={slideLeft}
+              delay={0.1}
+              className="lg:col-span-3"
+            >
               <div className="bg-white/[0.03] rounded-3xl border border-white/10 p-8 md:p-12">
                 <form className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="group">
-                      <label className="block text-sm font-medium text-gray-400 mb-3 tracking-wide">Full Name</label>
+                      <label className="block text-sm font-medium text-gray-400 mb-3 tracking-wide">
+                        Full Name
+                      </label>
                       <Input
                         className="bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:border-white/30 focus:bg-white/10 transition-all duration-200 h-14 text-base group-hover:border-white/20"
                         placeholder="John Doe"
@@ -807,7 +943,11 @@ export default function Portfolio() {
                           stroke="currentColor"
                           viewBox="0 0 24 24"
                           whileHover={{ transform: "translate3d(2px, 0, 0)" }}
-                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 30,
+                          }}
                         >
                           <path
                             strokeLinecap="round"
@@ -824,10 +964,16 @@ export default function Portfolio() {
             </ViewportAnimation>
 
             {/* Contact Info */}
-            <ViewportAnimation variant={slideRight} delay={0.2} className="lg:col-span-2 space-y-8">
+            <ViewportAnimation
+              variant={slideRight}
+              delay={0.2}
+              className="lg:col-span-2 space-y-8"
+            >
               {/* Contact Methods */}
               <div className="bg-white/[0.02] rounded-3xl border border-white/5 p-8">
-                <h3 className="text-xl font-semibold text-white mb-6">Get In Touch</h3>
+                <h3 className="text-xl font-semibold text-white mb-6">
+                  Get In Touch
+                </h3>
                 <div className="space-y-6">
                   <motion.div
                     className="flex items-center gap-4"
@@ -836,7 +982,12 @@ export default function Portfolio() {
                     style={{ willChange: "transform" }}
                   >
                     <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -855,7 +1006,9 @@ export default function Portfolio() {
 
               {/* Social Links */}
               <div className="bg-white/[0.02] rounded-3xl border border-white/5 p-8">
-                <h3 className="text-xl font-semibold text-white mb-6">Connect With Me</h3>
+                <h3 className="text-xl font-semibold text-white mb-6">
+                  Connect With Me
+                </h3>
                 <div className="grid grid-cols-3 gap-4">
                   {[
                     {
@@ -877,13 +1030,22 @@ export default function Portfolio() {
                       color: "hover:bg-gray-500/10 hover:border-gray-500/30",
                     },
                   ].map((social, index) => {
-                    const IconComponent = social.icon
+                    const IconComponent = social.icon;
                     return (
                       <motion.div
                         key={social.label}
-                        initial={{ opacity: 0, transform: "translate3d(0, 20px, 0)" }}
-                        whileInView={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
-                        transition={{ delay: index * 0.05 + 0.3, duration: 0.3 }}
+                        initial={{
+                          opacity: 0,
+                          transform: "translate3d(0, 20px, 0)",
+                        }}
+                        whileInView={{
+                          opacity: 1,
+                          transform: "translate3d(0, 0, 0)",
+                        }}
+                        transition={{
+                          delay: index * 0.05 + 0.3,
+                          duration: 0.3,
+                        }}
                         viewport={{ once: true, margin: "-50px" }}
                       >
                         <Link
@@ -897,7 +1059,7 @@ export default function Portfolio() {
                           </span>
                         </Link>
                       </motion.div>
-                    )
+                    );
                   })}
                 </div>
               </div>
@@ -913,13 +1075,21 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               {/* Quick Links */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-6">Quick Links</h3>
+                <h3 className="text-xl font-bold text-white mb-6">
+                  Quick Links
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {navLinks.map((link, index) => (
                     <motion.button
                       key={link.name}
-                      initial={{ opacity: 0, transform: "translate3d(-20px, 0, 0)" }}
-                      whileInView={{ opacity: 1, transform: "translate3d(0, 0, 0)" }}
+                      initial={{
+                        opacity: 0,
+                        transform: "translate3d(-20px, 0, 0)",
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        transform: "translate3d(0, 0, 0)",
+                      }}
                       transition={{ delay: index * 0.05, duration: 0.3 }}
                       viewport={{ once: true, margin: "-50px" }}
                       onClick={() => scrollToSection(link.href)}
@@ -943,13 +1113,19 @@ export default function Portfolio() {
                     { icon: Twitter, href: "#", label: "Twitter" },
                     { icon: Linkedin, href: "#", label: "LinkedIn" },
                   ].map((social, index) => {
-                    const IconComponent = social.icon
+                    const IconComponent = social.icon;
                     return (
                       <motion.div
                         key={social.label}
                         initial={{ opacity: 0, transform: "scale3d(0, 0, 1)" }}
-                        whileInView={{ opacity: 1, transform: "scale3d(1, 1, 1)" }}
-                        transition={{ delay: index * 0.05 + 0.1, duration: 0.2 }}
+                        whileInView={{
+                          opacity: 1,
+                          transform: "scale3d(1, 1, 1)",
+                        }}
+                        transition={{
+                          delay: index * 0.05 + 0.1,
+                          duration: 0.2,
+                        }}
                         viewport={{ once: true, margin: "-50px" }}
                       >
                         <Link
@@ -960,7 +1136,7 @@ export default function Portfolio() {
                           <IconComponent className="w-5 h-5 text-white" />
                         </Link>
                       </motion.div>
-                    )
+                    );
                   })}
                 </div>
               </div>
@@ -974,7 +1150,9 @@ export default function Portfolio() {
               viewport={{ once: true, margin: "-50px" }}
               className="pt-8 border-t border-white/10 text-center"
             >
-              <p className="text-gray-400">© Om Borisagar 2025 – All rights reserved.</p>
+              <p className="text-gray-400">
+                © Om Borisagar 2025 – All rights reserved.
+              </p>
             </motion.div>
           </div>
         </footer>
@@ -996,5 +1174,5 @@ export default function Portfolio() {
         </motion.button>
       )}
     </div>
-  )
+  );
 }
