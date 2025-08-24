@@ -25,8 +25,8 @@ import {
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
-import { BiLogoTypescript } from "react-icons/bi";
-import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium,   } from "react-icons/si";
+import { BiLogoTypescript, BiSolidVector } from "react-icons/bi";
+import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium, SiLangchain,   } from "react-icons/si";
 import { GiBearFace } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
 
@@ -455,6 +455,7 @@ export default function Portfolio() {
                     { name: "Socket.io", icon: SiSocketdotio },
                     { name: "WebRTC", icon: SiWebrtc },
                     { name: "Serverless", icon: SiServerless },
+                    { name: "Langchain", icon: SiLangchain },
                     
                   ].map((tech) => {
                     const IconComponent = tech.icon
