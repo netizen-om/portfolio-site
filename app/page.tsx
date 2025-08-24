@@ -634,7 +634,10 @@ export default function Portfolio() {
                   <div className="flex-1 space-y-6">
                     <div className="relative">
                       <div className="flex gap-3 lg:absolute lg:-top-2 lg:-right-2 mb-4 lg:mb-0">
-                        <Link href="https://github.com/netizen-om/Pravya-AI" target="_blank" rel="noopener noreferrer">
+                        <Link
+                          href="https://github.com/netizen-om/Pravya-AI"
+                          target="_blank"
+                        >
                           <motion.button
                             whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
                             whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
@@ -664,7 +667,16 @@ export default function Portfolio() {
                       technical and behavioral domains.
                     </p>
                     <div className="flex flex-wrap gap-3">
-                      {["Nextjs", "Typescript", "neonDB", "NextAuth", "Docker", "Langchain", "PostgreSQL", "QdrantDB"].map((tech) => (
+                      {[
+                        "Nextjs",
+                        "Typescript",
+                        "neonDB",
+                        "NextAuth",
+                        "Docker",
+                        "Langchain",
+                        "PostgreSQL",
+                        "QdrantDB",
+                      ].map((tech) => (
                         <motion.div
                           key={tech}
                           whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
@@ -714,47 +726,53 @@ export default function Portfolio() {
                   <div className="flex-1 space-y-6">
                     <div className="relative">
                       <div className="flex gap-3 lg:absolute lg:-top-2 lg:-right-2 mb-4 lg:mb-0">
-                        <motion.button
-                          whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
-                          whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
-                          className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
-                          style={{ willChange: "transform" }}
+                        <Link
+                          href="https://github.com/netizen-om/VIDTUBE"
+                          target="_blank"
                         >
-                          <Github className="w-5 h-5 text-white" />
-                        </motion.button>
-                        <motion.button
+                          <motion.button
+                            whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
+                            whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
+                            className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
+                            style={{ willChange: "transform" }}
+                          >
+                            <Github className="w-5 h-5 text-white" />
+                          </motion.button>
+                        </Link>
+                        {/* <motion.button
                           whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
                           whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
                           className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
                           style={{ willChange: "transform" }}
                         >
                           <ExternalLink className="w-5 h-5 text-white" />
-                        </motion.button>
+                        </motion.button> */}
                       </div>
                       <h3 className="text-3xl font-bold text-white mb-4">
-                        VR Mall
+                        VIDTUBE Backend
                       </h3>
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      An immersive virtual reality shopping experience that
-                      brings the mall to your home. Features 3D product
-                      visualization, virtual try-ons, and seamless payment
-                      integration.
+                      Developed a full-featured backend system combining
+                      YouTube-like video management with a Twitter-style tweet
+                      system.
                     </p>
                     <div className="flex flex-wrap gap-3">
-                      {["React", "Next.js", "PostgreSQL"].map((tech) => (
-                        <motion.div
-                          key={tech}
-                          whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
-                          className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 border border-white/20"
-                          style={{ willChange: "transform" }}
-                        >
-                          <Code className="w-4 h-4 text-gray-300" />
-                          <span className="text-gray-300 text-sm font-medium">
-                            {tech}
-                          </span>
-                        </motion.div>
-                      ))}
+                      {["Node.js", "Express.js", "MongoDB", "Mongoose"].map(
+                        (tech) => (
+                          <motion.div
+                            key={tech}
+                            whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
+                            className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 border border-white/20"
+                            style={{ willChange: "transform" }}
+                          >
+                            <Code className="w-4 h-4 text-gray-300" />
+                            <span className="text-gray-300 text-sm font-medium">
+                              {tech}
+                            </span>
+                          </motion.div>
+                        )
+                      )}
                     </div>
                   </div>
                   <div className="flex-1 lg:max-w-md">
@@ -792,35 +810,44 @@ export default function Portfolio() {
                   <div className="flex-1 space-y-6">
                     <div className="relative">
                       <div className="flex gap-3 lg:absolute lg:-top-2 lg:-right-2 mb-4 lg:mb-0">
-                        <motion.button
-                          whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
-                          whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
-                          className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
-                          style={{ willChange: "transform" }}
+                        <Link
+                          href="https://github.com/netizen-om/cloudinary-SaaS"
+                          target="_blank"
                         >
-                          <Github className="w-5 h-5 text-white" />
-                        </motion.button>
-                        <motion.button
-                          whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
-                          whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
-                          className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
-                          style={{ willChange: "transform" }}
+                          <motion.button
+                            whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
+                            whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
+                            className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
+                            style={{ willChange: "transform" }}
+                          >
+                            <Github className="w-5 h-5 text-white" />
+                          </motion.button>
+                        </Link>
+                        <Link
+                          href="https://cloudsnap-pi.vercel.app/home"
+                          target="_blank"
                         >
-                          <ExternalLink className="w-5 h-5 text-white" />
-                        </motion.button>
+                          <motion.button
+                            whileHover={{ transform: "scale3d(1.1, 1.1, 1)" }}
+                            whileTap={{ transform: "scale3d(0.95, 0.95, 1)" }}
+                            className="w-12 h-12 bg-white/10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-200"
+                            style={{ willChange: "transform" }}
+                          >
+                            <ExternalLink className="w-5 h-5 text-white" />
+                          </motion.button>
+                        </Link>
                       </div>
                       <h3 className="text-3xl font-bold text-white mb-4">
-                        AI Content Studio
+                        Cloudinary - SaaS
                       </h3>
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">
-                      Advanced AI-powered content creation platform with
-                      multiple templates, SEO optimization, and team
-                      collaboration features. Streamlines content workflow for
-                      marketing teams.
+                      Developed a SaaS platform for AI-powered video and image
+                      processing using Next.js and TypeScript, enabling users to
+                      upload, manage, and optimize media files seamlessly.
                     </p>
                     <div className="flex flex-wrap gap-3">
-                      {["TypeScript", "Node.js", "MongoDB"].map((tech) => (
+                      {["Nextjs", "Typescript", "Prisma", "NeonDB", "PostgreSQL", "Clerk", ].map((tech) => (
                         <motion.div
                           key={tech}
                           whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
