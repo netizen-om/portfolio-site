@@ -272,9 +272,21 @@ export default function Portfolio() {
             {/* Right Side */}
             <div className="hidden md:flex items-center space-x-4">
               {[
-                { icon: Github, href: "#", label: "GitHub" },
-                { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Twitter, href: "#", label: "Twitter" },
+                {
+                  icon: Github,
+                  href: "https://github.com/netizen-om",
+                  label: "GitHub",
+                },
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/om-borisagar-754591314/",
+                  label: "LinkedIn",
+                },
+                {
+                  icon: Twitter,
+                  href: "https://x.com/_om088",
+                  label: "Twitter",
+                },
               ].map((social, index) => {
                 const IconComponent = social.icon;
                 return (
@@ -303,7 +315,8 @@ export default function Portfolio() {
                 transition={{ delay: 0.4, duration: 0.3 }}
               >
                 <Link
-                  href="#"
+                target="_blank"
+                  href="https://drive.google.com/file/d/1dEnxuqddcRQcFXhV5FocNzzX5ClrtC59/view?usp=drive_link"
                   className="flex items-center gap-2 px-4 py-2 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white transition-all duration-200 rounded-lg text-sm font-medium hover:bg-white/5"
                 >
                   <FileText className="w-4 h-4" />
@@ -847,7 +860,14 @@ export default function Portfolio() {
                       upload, manage, and optimize media files seamlessly.
                     </p>
                     <div className="flex flex-wrap gap-3">
-                      {["Nextjs", "Typescript", "Prisma", "NeonDB", "PostgreSQL", "Clerk", ].map((tech) => (
+                      {[
+                        "Nextjs",
+                        "Typescript",
+                        "Prisma",
+                        "NeonDB",
+                        "PostgreSQL",
+                        "Clerk",
+                      ].map((tech) => (
                         <motion.div
                           key={tech}
                           whileHover={{ transform: "scale3d(1.05, 1.05, 1)" }}
@@ -964,25 +984,6 @@ export default function Portfolio() {
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
                         Send Message
-                        <motion.svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          whileHover={{ transform: "translate3d(2px, 0, 0)" }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 30,
-                          }}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                          />
-                        </motion.svg>
                       </span>
                     </motion.button>
                   </div>
@@ -1025,7 +1026,7 @@ export default function Portfolio() {
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm">Email</p>
-                      <p className="text-white">alex@example.com</p>
+                      <p className="text-white">work.om08@gmail.com</p>
                     </div>
                   </motion.div>
                 </div>
@@ -1040,19 +1041,19 @@ export default function Portfolio() {
                   {[
                     {
                       icon: Linkedin,
-                      href: "#",
+                      href: "https://www.linkedin.com/in/om-borisagar-754591314/",
                       label: "LinkedIn",
                       color: "hover:bg-blue-500/10 hover:border-blue-500/30",
                     },
                     {
                       icon: Twitter,
-                      href: "#",
+                      href: "https://x.com/_om088",
                       label: "Twitter",
                       color: "hover:bg-sky-500/10 hover:border-sky-500/30",
                     },
                     {
                       icon: Github,
-                      href: "#",
+                      href: "https://github.com/netizen-om",
                       label: "GitHub",
                       color: "hover:bg-gray-500/10 hover:border-gray-500/30",
                     },
@@ -1136,9 +1137,21 @@ export default function Portfolio() {
                 <h3 className="text-xl font-bold text-white mb-6">Connect</h3>
                 <div className="flex gap-4">
                   {[
-                    { icon: Github, href: "#", label: "GitHub" },
-                    { icon: Twitter, href: "#", label: "Twitter" },
-                    { icon: Linkedin, href: "#", label: "LinkedIn" },
+                    {
+                      icon: Github,
+                      href: "https://github.com/netizen-om",
+                      label: "GitHub",
+                    },
+                    {
+                      icon: Linkedin,
+                      href: "https://www.linkedin.com/in/om-borisagar-754591314/",
+                      label: "LinkedIn",
+                    },
+                    {
+                      icon: Twitter,
+                      href: "https://x.com/_om088",
+                      label: "Twitter",
+                    },
                   ].map((social, index) => {
                     const IconComponent = social.icon;
                     return (
