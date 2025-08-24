@@ -26,7 +26,8 @@ import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { BiLogoTypescript, BiSolidVector } from "react-icons/bi";
-import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium, SiLangchain,   } from "react-icons/si";
+import { SiTypescript, SiJavascript, SiReact, SiNextdotjs, SiHtml5, SiCss3, SiShadcnui, SiTailwindcss, SiReactquery, SiMaterialdesign, SiDaisyui, SiNodedotjs, SiMongodb, SiMongoose, SiExpress, SiPostgresql, SiMysql, SiPrisma, SiDrizzle, SiRedis, SiDocker, SiSocketdotio, SiWebrtc, SiServerless, SiClerk, SiGit, SiGithub, SiVscodium, SiLangchain, SiPostman, SiPosthog,   } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 import { GiBearFace } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
 
@@ -488,6 +489,9 @@ export default function Portfolio() {
                   {[
                     { name: "GitHub", icon: SiGithub },
                     { name: "Git", icon: SiGit },
+                    { name: "VS code", icon: VscVscode },
+                    { name: "Pastman", icon: SiPostman },
+                    { name: "PostHog", icon: SiPosthog },
                   ].map((tech) => {
                     const IconComponent = tech.icon
                     return (
